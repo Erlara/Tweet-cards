@@ -1,30 +1,38 @@
-import { Follow } from './Follow/Follow';
-//import { Following } from './Following/Following';
+import { Tweets } from '../page/Tweets/Tweets';
 import { GlobalStyle } from './GlobalStyle';
-import { Layout } from './Layout';
+//import { useDispatch } from 'react-redux';
+//import { fetchUsers } from 'redux/operations';
+//import { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { Home } from 'page/Home/Home';
+import { Header } from './Header/Header';
 
-// import { useDispatch } from 'react-redux';
-// import { fetchContacts } from 'redux/operations';
+// export function App() {
+//   const dispatch = useDispatch();
 
-// import { useEffect } from 'react';
+//   useEffect(() => {
+//     dispatch(fetchUsers());
+//   }, [dispatch]);
 
-export function App() {
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // }, [dispatch]);
-
+export const App = () => {
   return (
-    <Layout>
+    <>
+      <Routes>
+        <Route path="/" element={<Header />}>
+          <Route index element={<Home />} />
+          <Route path="/tweets" element={<Tweets />} />
+          {/* <Route path="*" element={<Home />} /> */}
+        </Route>
+      </Routes>
       <GlobalStyle />
-      <Follow />
-      {/* <Following /> */}
-      {/* <ContactForm />
-      {isLoading && !error && <b>Request in progress...</b>}
-      <h2>Contacts</h2>
-      <Filter />
-      <ContactList /> */}
-    </Layout>
+    </>
   );
-}
+};
+
+//   return (
+//     //<Layout>
+//      <GlobalStyle />
+//      <Tweets />
+
+//     //</Layout>
+//   );
