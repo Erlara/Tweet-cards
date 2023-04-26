@@ -21,7 +21,7 @@ export const changeUser = createAsyncThunk(
   'users/changeUser',
   async ({ id, followers }, thunkAPI) => {
     try {
-      const response = await axios.get(`/Users/${id}`, { followers });
+      const response = await axios.put(`/Users/${id}`, { followers });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
