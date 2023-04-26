@@ -5,9 +5,9 @@ import { selectUsers } from 'redux/selectors';
 export const TweetsList = () => {
   const users = useSelector(selectUsers);
 
-  return users.map(({ id, ...restProps }) => (
+  return users.map(({ id, ...otherProps }) => (
     <li key={id}>
-      <TweetCard id={id} {...restProps} />
+      <TweetCard id={id} {...otherProps} />
     </li>
   ));
 };
